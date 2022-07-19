@@ -1,0 +1,16 @@
+C:\Users\Tanvir Ahmed\Desktop\ADV .NET\B\PresentationLayer\AppConsole\bin\Debug\AppConsole.exe.config
+C:\Users\Tanvir Ahmed\Desktop\ADV .NET\B\PresentationLayer\AppConsole\bin\Debug\AppConsole.exe
+C:\Users\Tanvir Ahmed\Desktop\ADV .NET\B\PresentationLayer\AppConsole\bin\Debug\AppConsole.pdb
+C:\Users\Tanvir Ahmed\Desktop\ADV .NET\B\PresentationLayer\AppConsole\bin\Debug\BLL.dll
+C:\Users\Tanvir Ahmed\Desktop\ADV .NET\B\PresentationLayer\AppConsole\bin\Debug\DAL.dll
+C:\Users\Tanvir Ahmed\Desktop\ADV .NET\B\PresentationLayer\AppConsole\bin\Debug\EntityFramework.dll
+C:\Users\Tanvir Ahmed\Desktop\ADV .NET\B\PresentationLayer\AppConsole\bin\Debug\BLL.pdb
+C:\Users\Tanvir Ahmed\Desktop\ADV .NET\B\PresentationLayer\AppConsole\bin\Debug\DAL.pdb
+C:\Users\Tanvir Ahmed\Desktop\ADV .NET\B\PresentationLayer\AppConsole\bin\Debug\DAL.dll.config
+C:\Users\Tanvir Ahmed\Desktop\ADV .NET\B\PresentationLayer\AppConsole\bin\Debug\EntityFramework.xml
+C:\Users\Tanvir Ahmed\Desktop\ADV .NET\B\PresentationLayer\AppConsole\obj\Debug\AppConsole.csproj.AssemblyReference.cache
+C:\Users\Tanvir Ahmed\Desktop\ADV .NET\B\PresentationLayer\AppConsole\obj\Debug\AppConsole.csproj.SuggestedBindingRedirects.cache
+C:\Users\Tanvir Ahmed\Desktop\ADV .NET\B\PresentationLayer\AppConsole\obj\Debug\AppConsole.csproj.CoreCompileInputs.cache
+C:\Users\Tanvir Ahmed\Desktop\ADV .NET\B\PresentationLayer\AppConsole\obj\Debug\AppConsole.csproj.CopyComplete
+C:\Users\Tanvir Ahmed\Desktop\ADV .NET\B\PresentationLayer\AppConsole\obj\Debug\AppConsole.exe
+C:\Users\Tanvir Ahmed\Desktop\ADV .NET\B\PresentationLayer\AppConsole\obj\Debug\AppConsole.pdb
