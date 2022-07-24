@@ -49,7 +49,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="EF\Cours.cs">
+      <DependentUpon>StudentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Department.cs">
+      <DependentUpon>StudentModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="EF\Student.cs">
+      <DependentUpon>StudentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\StudentCours.cs">
       <DependentUpon>StudentModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\StudentModel.Context.cs">
@@ -67,7 +76,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>StudentModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="EF\sysdiagram.cs">
+      <DependentUpon>StudentModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repo\DepartmentRepo.cs" />
     <Compile Include="Repo\StudentRepo.cs" />
   </ItemGroup>
   <ItemGroup>

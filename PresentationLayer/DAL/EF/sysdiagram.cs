@@ -12,20 +12,12 @@ namespace DAL.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class Student
+    public partial class sysdiagram
     {
-        public Student()
-        {
-            this.StudentCourses = new HashSet<StudentCours>();
-        }
-    
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Dob { get; set; }
-        public string Cgpa { get; set; }
-        public int DepartmentId { get; set; }
-    
-        public virtual Department Department { get; set; }
-        public virtual ICollection<StudentCours> StudentCourses { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

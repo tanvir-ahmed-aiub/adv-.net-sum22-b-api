@@ -8,8 +8,118 @@
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Dob" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Cgpa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Department" Relationship="student_dbModel.FK_Students_Departments" FromRole="Student" ToRole="Department" />
+    <NavigationProperty Name="StudentCourses" Relationship="student_dbModel.FK_StudentCourses_Students" FromRole="Student" ToRole="StudentCours" />
   </EntityType>
   <EntityContainer Name="student_dbEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Students" EntityType="Self.Student" />
+    <EntitySet Name="Courses" EntityType="student_dbModel.Cours" />
+    <EntitySet Name="Departments" EntityType="student_dbModel.Department" />
+    <EntitySet Name="StudentCourses" EntityType="student_dbModel.StudentCours" />
+    <EntitySet Name="sysdiagrams" EntityType="student_dbModel.sysdiagram" />
+    <AssociationSet Name="FK_Courses_Departments" Association="student_dbModel.FK_Courses_Departments">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Cours" EntitySet="Courses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentCourses_Courses" Association="student_dbModel.FK_StudentCourses_Courses">
+      <End Role="Cours" EntitySet="Courses" />
+      <End Role="StudentCours" EntitySet="StudentCourses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Students_Departments" Association="student_dbModel.FK_Students_Departments">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Student" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentCourses_Students" Association="student_dbModel.FK_StudentCourses_Students">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="StudentCours" EntitySet="StudentCourses" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Cours">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DeprtmentId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Department" Relationship="student_dbModel.FK_Courses_Departments" FromRole="Cours" ToRole="Department" />
+    <NavigationProperty Name="StudentCourses" Relationship="student_dbModel.FK_StudentCourses_Courses" FromRole="Cours" ToRole="StudentCours" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Courses" Relationship="student_dbModel.FK_Courses_Departments" FromRole="Department" ToRole="Cours" />
+    <NavigationProperty Name="Students" Relationship="student_dbModel.FK_Students_Departments" FromRole="Department" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="StudentCours">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CourseId" Type="Int32" Nullable="false" />
+    <Property Name="StudentId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cours" Relationship="student_dbModel.FK_StudentCourses_Courses" FromRole="StudentCours" ToRole="Cours" />
+    <NavigationProperty Name="Student" Relationship="student_dbModel.FK_StudentCourses_Students" FromRole="StudentCours" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Courses_Departments">
+    <End Type="student_dbModel.Department" Role="Department" Multiplicity="1" />
+    <End Type="student_dbModel.Cours" Role="Cours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cours">
+        <PropertyRef Name="DeprtmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentCourses_Courses">
+    <End Type="student_dbModel.Cours" Role="Cours" Multiplicity="1" />
+    <End Type="student_dbModel.StudentCours" Role="StudentCours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cours">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentCours">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Students_Departments">
+    <End Type="student_dbModel.Department" Role="Department" Multiplicity="1" />
+    <End Type="student_dbModel.Student" Role="Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentCourses_Students">
+    <End Type="student_dbModel.Student" Role="Student" Multiplicity="1" />
+    <End Type="student_dbModel.StudentCours" Role="StudentCours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentCours">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>
