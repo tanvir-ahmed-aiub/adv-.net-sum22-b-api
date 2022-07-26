@@ -1,4 +1,5 @@
 ﻿using BLL.BOs;
+using DAL;
 using DAL.EF;
 using DAL.Repo;
 using System;
@@ -12,7 +13,7 @@ namespace BLL.Services
     public class StudentService
     {
         public static List<StudentModel> Get() {
-            var data= StudentRepo.Get();
+            var data = DataAccessFactory.GetStudentDataAccess().Get();
             var rdata = new List<StudentModel>();
             foreach (var item in data)
             {
@@ -24,10 +25,10 @@ namespace BLL.Services
             return rdata;
         }
         public static List<Student> GetVarStudentCount(int count) {
-            return StudentRepo.Get().Take(count).ToList();
+            return DataAccessFactory.GetStudentDataAccess().Get().Take(count).ToList();
         }
         public static Student GetStudent(int id) {
-            return StudentRepo.Get(id);
+            return DataAccessFactory.GetStudentDataAccess().Get(id);
         }
         public static bool Create(StudentModel item) {
             var student =new Student()
@@ -37,10 +38,10 @@ namespace BLL.Services
                 Cgpa = item.Cgpa,
                 Dob = item.Dob
             };
-            return StudentRepo.Create(student); 
+            return DataAccessFactory.GetStudentDataAccess().Create(student); 
         }
         public static bool Update(Student student) { 
-            return StudentRepo.Update(student);
+            return DataAccessFactory.GetStudentDataAccess().Update(student);
         }
     }
 }

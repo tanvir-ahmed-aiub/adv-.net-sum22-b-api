@@ -1,4 +1,5 @@
 ﻿using DAL.EF;
+using DAL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,33 +8,44 @@ using System.Threading.Tasks;
 
 namespace DAL.Repo
 {
-    public class StudentRepo
+    public class StudentRepo:IRepo<Student,int>
     {
-        static student_dbEntities db = new student_dbEntities();
-        public static List<Student> Get() {
+         student_dbEntities db = new student_dbEntities();
+        public StudentRepo(student_dbEntities db)
+        {
+            this.db = db;   
+        }
+        public  List<Student> Get()
+        {
             return db.Students.ToList();
         }
-        public static Student Get(int id) { 
+        public  Student Get(int id)
+        {
             return db.Students.SingleOrDefault(s => s.Id == id);
         }
-        public static bool Create(Student student) {
+        public  bool Create(Student student)
+        {
             db.Students.Add(student);
             var res = db.SaveChanges();
-            if (res != 0) { 
+            if (res != 0)
+            {
                 return true;
             }
-            return false;           
+            return false;
         }
-        public static bool Update(Student student) {
+        public  bool Update(Student student)
+        {
             var exst = db.Students.FirstOrDefault(x => x.Id == student.Id);
-            if (exst != null) {
+            if (exst != null)
+            {
                 db.Entry(exst).CurrentValues.SetValues(student);
                 db.SaveChanges();
                 return true;
             }
             return false;
         }
-        public bool Delete(int id) { 
+        public bool Delete(int id)
+        {
             db.Students.Remove(Get(id));
             db.SaveChanges();
             return true;

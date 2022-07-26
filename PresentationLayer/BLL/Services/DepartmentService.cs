@@ -1,4 +1,5 @@
 ﻿using BLL.BOs;
+using DAL;
 using DAL.Repo;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace BLL.Services
     public class DepartmentService
     {
         public static List<DepartmentModel>Get() {
-            var data = DepartmentRepo.Get();
+            var data = DataAccessFactory.GetDepartmentDataAccess().Get();
             var depts = new List<DepartmentModel>();    
             foreach(var item in data)
             {
@@ -21,13 +22,13 @@ namespace BLL.Services
         }
         public static DepartmentModel GetOnly(int id)
         {
-            var item = DepartmentRepo.Get(id);
+            var item = DataAccessFactory.GetDepartmentDataAccess().Get(id);
             var d = new DepartmentModel() { Id = item.Id, Name = item.Name };
             return d;
 
         }
         public static DepartmentStudentModel Get(int id) {
-            var dept = DepartmentRepo.Get(id);
+            var dept = DataAccessFactory.GetDepartmentDataAccess().Get(id);
             var d = new DepartmentStudentModel();
             d.Id = dept.Id;
             d.Name = dept.Name;

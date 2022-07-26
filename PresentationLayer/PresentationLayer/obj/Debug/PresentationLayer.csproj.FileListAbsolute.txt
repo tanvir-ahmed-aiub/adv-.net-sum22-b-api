@@ -72,3 +72,6 @@ C:\Users\Tanvir Ahmed\Desktop\ADV .NET\B\PresentationLayer\PresentationLayer\obj
 C:\Users\Tanvir Ahmed\Desktop\ADV .NET\B\PresentationLayer\PresentationLayer\obj\Debug\PresentationLayer.csproj.CopyComplete
 C:\Users\Tanvir Ahmed\Desktop\ADV .NET\B\PresentationLayer\PresentationLayer\obj\Debug\PresentationLayer.dll
 C:\Users\Tanvir Ahmed\Desktop\ADV .NET\B\PresentationLayer\PresentationLayer\obj\Debug\PresentationLayer.pdb
+C:\Users\Tanvir Ahmed\Desktop\ADV .NET\B\PresentationLayer\PresentationLayer\bin\System.Web.Cors.dll
+C:\Users\Tanvir Ahmed\Desktop\ADV .NET\B\PresentationLayer\PresentationLayer\bin\System.Web.Http.Cors.dll
+C:\Users\Tanvir Ahmed\Desktop\ADV .NET\B\PresentationLayer\PresentationLayer\bin\System.Web.Http.Cors.xml
