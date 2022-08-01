@@ -14,6 +14,8 @@
         <AssociationConnector Association="student_dbModel.FK_StudentCourses_Courses" />
         <AssociationConnector Association="student_dbModel.FK_Students_Departments" />
         <AssociationConnector Association="student_dbModel.FK_StudentCourses_Students" />
+        <EntityTypeShape EntityType="student_dbModel.Token" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="student_dbModel.User" Width="1.5" PointX="2.75" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

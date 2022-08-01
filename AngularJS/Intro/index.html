@@ -1,0 +1,67 @@
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+		<script>
+			var app = angular.module("demo",[]);
+			app.controller('ctrl1',function($scope){
+				$scope.name="tanvir";
+			});
+			app.controller('ctrl2',function($scope){
+				$scope.handleSubmit=function(){
+					alert("submitted");
+				};
+				
+			});
+			app.controller('dept',function($scope,$http){
+				$http.get("https://localhost:44388/api/department/1")
+				.then(function(resp){
+					$scope.name=resp.data.Name;
+					$scope.id = resp.data.Id;
+				},function(err){
+					
+				});
+			});
+			app.controller('deptLst',function($scope,$http){
+				$http.get("https://localhost:44388/api/department")
+				.then(function(succ){
+					$scope.depts=succ.data;
+				},function(er){});
+			});
+			
+			
+		</script>
+	</head>
+	<body ng-app="demo">
+		<div ng-controller="ctrl1">
+			<input type="text" ng-model="name"/>
+			<span>{{ 7*4 }}</span>
+			<h1>{{name}}</h1>
+			<h4  ng-bind="name"></h4>
+		</div>
+		<div ng-controller="ctrl2">
+			<h3>{{name}}</h3>
+			<form >
+				Username: <input type="text"> <br>
+				Password: <input type="password" > </br>
+				<input type="submit">
+			</form>
+			
+		</div>
+		<div ng-controller="dept">
+			<h3>{{id}}</h3>
+			<h2>{{name}}</h2>
+		</div>
+		<div ng-controller="deptLst">
+			<table border="1">
+				<tr>
+					<th>Id</th>
+					<th>Name</th>
+				</tr>
+				<tr ng-repeat="d in depts">
+					<td>{{d.Id}}</td>
+					<td>{{d.Name}}</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>

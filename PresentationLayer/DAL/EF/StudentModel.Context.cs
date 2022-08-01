@@ -30,5 +30,7 @@ namespace DAL.EF
         public DbSet<Department> Departments { get; set; }
         public DbSet<StudentCours> StudentCourses { get; set; }
         public DbSet<sysdiagram> sysdiagrams { get; set; }
+        public DbSet<Token> Tokens { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

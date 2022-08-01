@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repo
 {
-    public class StudentRepoV2 : IRepo<Student, int>
+    public class StudentRepoV2 : IRepo<Student, int,bool>
     {
         student_dbEntities db;
         public StudentRepoV2(student_dbEntities db)

@@ -1,4 +1,5 @@
 ﻿using BLL.Services;
+using PresentationLayer.Auth;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace PresentationLayer.Controllers
     [EnableCors("*","*","*")]
     public class DepartmenrtController : ApiController
     {
+        //[ValidUser]
         [Route("api/department/")]
         [HttpGet]
         public HttpResponseMessage GetAll()
