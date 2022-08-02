@@ -50,7 +50,7 @@ app.config(["$routeProvider","$locationProvider","$httpProvider",function($route
 app.factory("interCeptor",function($q,$location){
     return{
         'request':function(config){
-            debugger;
+            config.headers.Authorization="token";
             console.log("intercepted");
             return config;
         },
@@ -58,4 +58,6 @@ app.factory("interCeptor",function($q,$location){
         }
     }
 });
-$httpProvider.interceptors.push('interCeptor');
+app.config(function($httpProvider){
+	$httpProvider.interceptors.push("interCeptor");
+});
