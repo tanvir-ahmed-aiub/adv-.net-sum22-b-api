@@ -1,4 +1,5 @@
-﻿using BLL.Services;
+﻿using BLL.BOs;
+using BLL.Services;
 using PresentationLayer.Auth;
 using System;
 using System.Collections.Generic;
@@ -34,6 +35,11 @@ namespace PresentationLayer.Controllers
         {
             var data = DepartmentService.Get(id);
             return Request.CreateResponse(HttpStatusCode.OK, data);
+        }
+        [Route("api/department/create")]
+        [HttpPost]
+        public HttpResponseMessage Create(DepartmentModel data) {
+            return Request.CreateResponse(HttpStatusCode.OK, "Creted");
         }
     }
 }
